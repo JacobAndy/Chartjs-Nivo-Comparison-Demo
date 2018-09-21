@@ -9,7 +9,8 @@
 # production
 /build
 # Hide css files and dependency data
-src/**/*.css
+/src/**/*.css
+
 /src/dependencies
 
 # misc
