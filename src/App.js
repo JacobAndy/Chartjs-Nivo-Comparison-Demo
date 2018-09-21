@@ -8,13 +8,17 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>test</h1>
+          <h1>Jacob's Demo</h1>
+          <p>
+            This demo is to show the difference of 2 data visualization tools,
+            but complete the same task
+          </p>
           {routes}
           <Link to="/chartjs">
-            <button>ChartJs Example</button>
+            <button>ChartJs</button>
           </Link>
           <Link to="/nivo">
-            <button>Nivo Example</button>
+            <button>Nivo</button>
           </Link>
         </div>
       </Router>
