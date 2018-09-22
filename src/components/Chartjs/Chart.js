@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+import PercentDoughnut from "./components/PercentDoughnut";
 import "./style/Chart.css";
-import Selections from "../Selections";
+
+import EachTeam from "./components/EachTeam";
 
 class ChartJS extends Component {
   state = {};
+
   render() {
     return (
       <div>
-        <Selections />
-        <h1>ChartJS</h1>
+        <main>
+          <EachTeam currentTeam="byu" />
+          <h2>VS</h2>
+          <EachTeam currentTeam="utah" />
+        </main>
+        <PercentDoughnut />
       </div>
     );
   }
