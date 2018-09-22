@@ -1,0 +1,44 @@
+@import "../../../Sass/__mixins.scss";
+@import "../../../Sass/__variables.scss";
+.each_team {
+  header {
+    select {
+      //current team
+      &:nth-child(1) {
+      }
+      //current year
+      &:nth-child(2) {
+      }
+      option {
+      }
+    }
+  }
+  &__details {
+    img {
+    }
+    section {
+      @include flex(space-between, center, row);
+      div {
+        width: 50px;
+        @include flex(space-around, center, column);
+        // Ties
+        &:nth-child(1) {
+        }
+        // Loss
+        &:nth-child(2) {
+        }
+        // Wins
+        &:nth-child(3) {
+        }
+        h3 {
+          // Win(W), Loss(L), Tie(T)
+          &:nth-child(1) {
+          }
+          //Count
+          &:nth-child(2) {
+          }
+        }
+      }
+    }
+  }
+}

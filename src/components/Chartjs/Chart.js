@@ -9,8 +9,8 @@ class ChartJS extends Component {
 
   render() {
     return (
-      <div>
-        <main>
+      <div className="chart">
+        <main className="chart__team-holder">
           <EachTeam currentTeam="byu" />
           <h2>VS</h2>
           <EachTeam currentTeam="utah" />

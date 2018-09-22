@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../style/EachTeam.css";
 
 import Utah from "../../../dependencies/UtahStateFootball.png";
 import BYU from "../../../dependencies/BYUFootballLogo.png";
@@ -18,7 +19,7 @@ class EachTeam extends Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div className="each_team">
         <header>
           <select
             value={currentTeam}
@@ -38,12 +39,11 @@ class EachTeam extends Component {
             <option value={1954}>1954</option>
           </select>
         </header>
-        <div>
+        <div className="each_team__details">
           <img
             src={currentTeam === "utah" ? Utah : BYU}
-            // width="125px"
             height="125px"
-            alt="UTAH"
+            alt={currentTeam === "utah" ? "Utah State" : "BYU"}
           />
           {/*
         ** Image is the logo of the selected team
