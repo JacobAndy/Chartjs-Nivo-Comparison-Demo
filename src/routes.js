@@ -7,7 +7,9 @@ import Nivo from "./components/Nivo/Nivo";
 
 export default (
   <Switch>
-    <Route path="/chartjs" component={ChartJS} />
+    <Route exact path="/chartjs/:id" component={ChartJS} />
+    <Route exact path="/chartjs" component={ChartJS} />
+
     <Route path="/nivo" component={Nivo} />
     <Route path="/" component={Home} />
   </Switch>

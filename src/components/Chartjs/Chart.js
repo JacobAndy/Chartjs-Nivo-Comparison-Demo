@@ -30,13 +30,6 @@ class ChartJS extends Component {
       });
     }
   };
-  // componentDidUpdate(prevProps, prevState) {
-  //   let { utah, byu } = this.state;
-  //   if (prevState.utah !== utah || prevState.byu !== byu) {
-  //     let utahDiff = this.findDifference(byu, utah);
-  //     // this.setState({ utah: utahDiff.utah, byu: utahDiff.byu });
-  //   }
-  // }
   findDifference = (byu, utah) => {
     console.log(byu, utah);
     const difference = byu > utah ? byu - utah : utah - byu;

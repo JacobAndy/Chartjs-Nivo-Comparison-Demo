@@ -1,3 +1,26 @@
+#nivo {
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.nivo-graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 200px;
+  width: 200px;
+  position: absolute; }
+  .nivo-graph_left {
+    left: 90px; }
+  .nivo-graph_right {
+    right: 90px; }
+
 .chartjs-size-monitor {
   position: relative !important; }
 

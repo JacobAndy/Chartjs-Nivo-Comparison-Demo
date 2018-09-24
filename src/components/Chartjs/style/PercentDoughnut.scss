@@ -1,5 +1,25 @@
 @import "../../../Sass/__mixins.scss";
 @import "../../../Sass/__variables.scss";
+
+#nivo {
+  margin-top: 200px;
+  width: 100%;
+  @include flex(center, center, row);
+}
+
+.nivo-graph {
+  @include flex(center, center, row);
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  &_left {
+    left: 90px;
+  }
+  &_right {
+    right: 90px;
+  }
+}
+
 .chartjs-size-monitor {
   position: relative !important;
 }
