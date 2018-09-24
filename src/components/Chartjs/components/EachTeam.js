@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../style/EachTeam.css";
+import { Context } from "../../../App";
 
 import Utah from "../../../dependencies/UtahStateFootball.png";
 import BYU from "../../../dependencies/BYUFootballLogo.png";
@@ -7,8 +8,19 @@ import BYU from "../../../dependencies/BYUFootballLogo.png";
 class EachTeam extends Component {
   state = {
     currentTeam: this.props.currentTeam,
-    currentYear: 1951
+    currentYear: 1950,
+    currentStats: []
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    let { currentYear, currentTeam } = this.state;
+    if (prevState.currentYear !== currentYear) {
+      const index = this.props.val[currentTeam].findIndex(
+        e => e.year === currentYear && e.team === currentTeam
+      );
+      this.setState({ currentStats: this.props.val[currentTeam][index] });
+    }
+  }
   changeCurrentTeam = (current, e) => {
     this.setState({ [current]: e });
   };
@@ -70,4 +82,8 @@ class EachTeam extends Component {
     );
   }
 }
-export default EachTeam;
+
+let newValue = () => (
+  <Context.Consumer>{value => <EachTeam val={value} />}</Context.Consumer>
+);
+export default newValue;

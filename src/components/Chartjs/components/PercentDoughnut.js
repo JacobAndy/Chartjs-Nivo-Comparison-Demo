@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from "react";
 import "../style/PercentDoughnut.css";
 import { Doughnut } from "react-chartjs-2";
+import fs from "fs";
+import csv from "fast-csv";
+import axios from "axios";
 
 import Utah from "../../../dependencies/UtahStateFootball.png";
 import BYU from "../../../dependencies/BYUFootballLogo.png";
@@ -33,9 +36,13 @@ const data = {
 };
 
 class PercentDoughnut extends Component {
-  state = {};
+  state = {
+    utah: [],
+    byu: []
+  };
 
   render() {
+    console.log(this.props);
     return (
       <div className="doughnut-percents">
         <div className="doughnut-percents__test">
