@@ -27,7 +27,8 @@ class App extends Component {
             Wins: e2[4],
             Losses: e2[5],
             Tie: e2[6],
-            Percentage: e2[7]
+            Percentage: e2[7],
+            Coach: e2[15]
           };
         });
         const utah = newRes.filter(e => e.team === "Utah");

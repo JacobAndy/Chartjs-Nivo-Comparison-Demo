@@ -13,9 +13,9 @@ class ChartJS extends Component {
     return (
       <div className="chart">
         <main className="chart__team-holder">
-          <EachTeam currentTeam="byu" />
+          <EachTeam currentTeam="byu" val={this.props.val} />
           <h2>VS</h2>
-          <EachTeam currentTeam="utah" />
+          <EachTeam currentTeam="utah" val={this.props.val} />
         </main>
         {/* <PercentDoughnut /> */}
       </div>

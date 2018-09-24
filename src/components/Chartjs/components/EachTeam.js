@@ -14,9 +14,13 @@ class EachTeam extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     let { currentYear, currentTeam } = this.state;
-    if (prevState.currentYear !== currentYear) {
+    if (
+      prevState.currentYear !== currentYear ||
+      prevState.currentTeam !== currentTeam ||
+      prevProps.val !== this.props.val
+    ) {
       const index = this.props.val[currentTeam].findIndex(
-        e => e.year === currentYear && e.team === currentTeam
+        e => +e.Year === currentYear && e.team.toLowerCase() === currentTeam
       );
       this.setState({ currentStats: this.props.val[currentTeam][index] });
     }
@@ -26,9 +30,9 @@ class EachTeam extends Component {
   };
   render() {
     let { changeCurrentTeam } = this;
-    let { currentTeam, currentYear } = this.state;
+    let { currentTeam, currentYear, currentStats } = this.state;
 
-    console.log(this.state);
+    // console.log(this.props);
 
     return (
       <div className="each_team">
@@ -63,18 +67,24 @@ class EachTeam extends Component {
         ** section includes the details of that seasons stats
         for the team
         */}
+          <div>
+            <h3>{currentStats.team}</h3>
+            <h3>{currentStats.Coach}</h3>
+            <h3>{currentStats.Conference}</h3>
+            <h3>{currentStats.rank}</h3>
+          </div>
           <section>
             <div>
               <h3>W</h3>
-              <h3>1</h3>
+              <h3>{currentStats.Wins}</h3>
             </div>
             <div>
               <h3>L</h3>
-              <h3>1</h3>
+              <h3>{currentStats.Losses}</h3>
             </div>
             <div>
               <h3>T</h3>
-              <h3>1</h3>
+              <h3>{currentStats.Tie}</h3>
             </div>
           </section>
         </div>
@@ -83,7 +93,4 @@ class EachTeam extends Component {
   }
 }
 
-let newValue = () => (
-  <Context.Consumer>{value => <EachTeam val={value} />}</Context.Consumer>
-);
-export default newValue;
+export default EachTeam;
