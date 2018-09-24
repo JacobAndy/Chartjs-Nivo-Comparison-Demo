@@ -11,9 +11,20 @@ class EachTeam extends Component {
     currentYear: 1950,
     currentStats: []
   };
+  componentDidMount() {
+    if (this.props.val.length) {
+      const index = this.props.val[this.statecurrentTeam].findIndex(
+        e => e.Year === this.state.currentYear
+      );
+      this.setState({
+        currentStats: this.props.val[this.state.currentTeam][index]
+      });
+    }
+  }
 
   componentDidUpdate(prevProps, prevState) {
-    let { currentYear, currentTeam } = this.state;
+    let { currentYear, currentTeam, currentStats } = this.state;
+    let { updateState } = this.props;
     if (
       prevState.currentYear !== currentYear ||
       prevState.currentTeam !== currentTeam ||
@@ -23,16 +34,32 @@ class EachTeam extends Component {
         e => +e.Year === currentYear && e.team.toLowerCase() === currentTeam
       );
       this.setState({ currentStats: this.props.val[currentTeam][index] });
+      console.log("BLahahahahahaahahah", this.props.val[currentTeam][index]);
+      updateState(
+        this.props.currentTeam,
+        this.getPossibility(
+          +this.props.val[currentTeam][index].Wins,
+          +this.props.val[currentTeam][index].Losses,
+          +this.props.val[currentTeam][index].Tie
+        )
+      );
     }
   }
   changeCurrentTeam = (current, e) => {
     this.setState({ [current]: e });
   };
+  getPossibility = (w, l, t) => {
+    console.log("HERERERERERERRERERE", w, l, t);
+    const total = w + l + t;
+    const winTieCombo = w + t / 2;
+    console.log(winTieCombo / total);
+    return winTieCombo / total;
+  };
   render() {
     let { changeCurrentTeam } = this;
     let { currentTeam, currentYear, currentStats } = this.state;
 
-    // console.log(this.props);
+    console.log(this.state);
 
     return (
       <div className="each_team">

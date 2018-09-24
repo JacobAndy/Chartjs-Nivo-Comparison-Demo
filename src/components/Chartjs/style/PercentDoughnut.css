@@ -10,6 +10,9 @@
   flex-wrap: wrap; }
   .doughnut-percents__test {
     position: absolute;
-    left: 0;
     width: 500px;
     height: 300px; }
+    .doughnut-percents__test_right {
+      right: 0; }
+    .doughnut-percents__test_left {
+      left: 0; }
